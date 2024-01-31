@@ -1,0 +1,15 @@
+### Find All Content
+GET http://localhost:8080/api/content
+
+### Find Content by ID
+GET http://localhost:8080/api/content/0
+
+### Post Content
+POST http://localhost:8080/api/content
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Another book",
+  "authorName": "Another Author's name"
+}
