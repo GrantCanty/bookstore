@@ -23,3 +23,6 @@ Content-Type: application/json
   "title": "Changed book title",
   "authorName": "Changed Author's name"
 }
+
+### Delete existing Content
+DELETE http://localhost:8080/api/content/0
