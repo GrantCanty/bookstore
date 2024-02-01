@@ -13,3 +13,13 @@ Content-Type: application/json
   "title": "Another book",
   "authorName": "Another Author's name"
 }
+
+### Updated existing Content
+PUT http://localhost:8080/api/content/0
+Content-Type: application/json
+
+{
+  "id": 0,
+  "title": "Changed book title",
+  "authorName": "Changed Author's name"
+}
