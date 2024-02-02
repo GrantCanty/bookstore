@@ -4,6 +4,7 @@ import com.bookstore.bookstore.Content.Content;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,9 @@ public class ContentCollectionRepository {
         Content c = new Content(
                 0,
                 "Harry Potter",
-                "J.k. Rowling"
+                "J.k. Rowling",
+                2,
+                LocalDate.of(2012,5,15)
         );
         contentList.add(c);
     }

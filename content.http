@@ -11,7 +11,9 @@ Content-Type: application/json
 {
   "id": 1,
   "title": "Another book",
-  "authorName": "Another Author's name"
+  "authorName": "Another Author's name",
+  "inventoryCount": 3,
+  "lastEditDate": "2014-03-22"
 }
 
 ### Updated existing Content
@@ -21,7 +23,9 @@ Content-Type: application/json
 {
   "id": 0,
   "title": "Changed book title",
-  "authorName": "Changed Author's name"
+  "authorName": "Changed Author's name",
+  "inventoryCount": 2,
+  "lastEditDate": "2024-2-1"
 }
 
 ### Delete existing Content
