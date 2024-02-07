@@ -24,9 +24,19 @@ public class ContentController {
         return repository.findAll();
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public Content findById(@PathVariable Integer id) {
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content could not be found"));
+    }*/
+
+    @GetMapping("/available")
+    public List<Content> findAllAvailable() {
+            return repository.findAllAvailable();
+    }
+
+    @GetMapping("/{param}")
+    public Content findByAuthorOrBookName(@PathVariable String param) {
+        return repository.findByAuthorOrBookName(param).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content could not be found"));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

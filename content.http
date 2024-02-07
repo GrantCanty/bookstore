@@ -30,3 +30,12 @@ Content-Type: application/json
 
 ### Delete existing Content
 DELETE http://localhost:8080/api/content/0
+
+### Get all available books
+GET http://localhost:8080/api/content/available
+
+### Get content by providing author/book name
+GET http://localhost:8080/api/content/J.K.%20Rowling
+
+### Get content by providing author/book name
+GET http://localhost:8080/api/content/Leave%20the%20World%20Behind
