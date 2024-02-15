@@ -1,6 +1,7 @@
 package com.bookstore.bookstore.Controller;
 
 import com.bookstore.bookstore.Content.Content;
+import com.bookstore.bookstore.DateRange.DateRange;
 import com.bookstore.bookstore.Repository.ContentCollectionRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,11 @@ public class ContentController {
     @GetMapping("/{param}")
     public Content findByAuthorOrBookName(@PathVariable String param) {
         return repository.findByAuthorOrBookName(param).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content could not be found"));
+    }
+
+    @GetMapping("/search")
+    public List<Content> findBooksByDateRange(@RequestBody DateRange dateRange) {
+        return repository.searchByDates(dateRange);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

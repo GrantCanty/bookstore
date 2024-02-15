@@ -1,6 +1,7 @@
 package com.bookstore.bookstore.Repository;
 
 import com.bookstore.bookstore.Content.Content;
+import com.bookstore.bookstore.DateRange.DateRange;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -21,9 +22,9 @@ public class ContentCollectionRepository {
         return contentList;
     }
 
-    public Optional<Content> findById(Integer id) {
+    /*public Optional<Content> findById(Integer id) {
         return contentList.stream().filter(c -> c.id().equals(id)).findFirst();
-    }
+    }*/
 
     public List<Content> findAllAvailable() {
         return contentList.stream().filter(c -> c.inventoryCount() >= 1).collect(Collectors.toList());
@@ -39,6 +40,11 @@ public class ContentCollectionRepository {
         contentList.add(content);
     }
 
+    public List<Content> searchByDates(DateRange dateRange) {
+        System.out.println( dateRange);
+        return contentList.stream().filter(c -> c.publishDate().isAfter(dateRange.from()) && c.publishDate().isBefore(dateRange.to())).collect(Collectors.toList());
+    }
+
     @PostConstruct
     public void init() {
         Content c = new Content(
@@ -46,6 +52,7 @@ public class ContentCollectionRepository {
                 "Harry Potter",
                 "J.K. Rowling",
                 2,
+                LocalDate.of(2012,5,15),
                 LocalDate.of(2012,5,15)
         );
         contentList.add(c);
@@ -54,21 +61,24 @@ public class ContentCollectionRepository {
                     "Leave the World Behind",
                 "Mindy",
                 5,
-                LocalDate.of(2012,5,15)
+                LocalDate.of(2015,5,15),
+                LocalDate.of(2015,5,15)
         ));
         contentList.add(new Content(
                 2,
                 "The Hunger Games",
                 "Author's name",
                 0,
-                LocalDate.of(2012,5,15)
+                LocalDate.of(2013,5,15),
+                LocalDate.of(2013,5,15)
         ));
         contentList.add(new Content(
                 3,
                 "Game of thrones",
                 "Author's name",
                 8,
-                LocalDate.of(2012,5,15)
+                LocalDate.of(2019,5,15),
+                LocalDate.of(2019,5,15)
         ));
     }
 

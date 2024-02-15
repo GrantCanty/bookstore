@@ -25,6 +25,7 @@ Content-Type: application/json
   "title": "Changed book title",
   "authorName": "Changed Author's name",
   "inventoryCount": 2,
+  "publishDate": "2024-2-1",
   "lastEditDate": "2024-2-1"
 }
 
@@ -39,3 +40,12 @@ GET http://localhost:8080/api/content/J.K.%20Rowling
 
 ### Get content by providing author/book name
 GET http://localhost:8080/api/content/Leave%20the%20World%20Behind
+
+### Get content by date range
+GET http://localhost:8080/api/content/search
+Content-Type: application/json
+
+{
+  "to": "2017-05-08",
+  "from": "2012-09-01"
+}

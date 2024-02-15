@@ -8,6 +8,7 @@ public record Content(
         String title,
         String authorName,
         Integer inventoryCount,
+        LocalDate publishDate,
         LocalDate lastEditDate
 ) {
 
