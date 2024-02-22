@@ -41,8 +41,11 @@ public class ContentCollectionRepository {
     }
 
     public List<Content> searchByDates(DateRange dateRange) {
-        System.out.println( dateRange);
         return contentList.stream().filter(c -> c.publishDate().isAfter(dateRange.from()) && c.publishDate().isBefore(dateRange.to())).collect(Collectors.toList());
+    }
+
+    public List<Content> findMostRecent() {
+        return contentList.stream().filter(c -> c.publishDate().isAfter(LocalDate.now().minusDays(60))).collect(Collectors.toList());
     }
 
     @PostConstruct
@@ -79,6 +82,14 @@ public class ContentCollectionRepository {
                 8,
                 LocalDate.of(2019,5,15),
                 LocalDate.of(2019,5,15)
+        ));
+        contentList.add(new Content(
+                3,
+                "One more book",
+                "Author's name",
+                8,
+                LocalDate.of(2024,1,15),
+                LocalDate.of(2024,1,15)
         ));
     }
 

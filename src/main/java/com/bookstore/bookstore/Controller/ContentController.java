@@ -45,6 +45,11 @@ public class ContentController {
         return repository.searchByDates(dateRange);
     }
 
+    @GetMapping("/search/recent")
+    public List<Content> findMostRecent() {
+        return repository.findMostRecent();
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public void create(@RequestBody Content content) {

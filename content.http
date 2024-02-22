@@ -49,3 +49,6 @@ Content-Type: application/json
   "to": "2017-05-08",
   "from": "2012-09-01"
 }
+
+### Get most recent content
+GET http://localhost:8080/api/content/search/recent
