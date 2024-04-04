@@ -7,10 +7,10 @@ const Sidebar = () => {
         <>
             <div className="sidebar">
                 <ul>
-                    <li><SidebarLI text="Edit" link="edit"></SidebarLI></li>
-                    <li><SidebarLI text="Add New" link="new"></SidebarLI></li>
-                    <li><SidebarLI text="Get Books" link="get"></SidebarLI></li>
-                    <li><SidebarLI text="Delete" link="delete"></SidebarLI></li>
+                    <li><SidebarLI text="Edit" link="edit" icon="edit_square"></SidebarLI></li>
+                    <li><SidebarLI text="Add Book" link="new" icon="add_circle"></SidebarLI></li>
+                    <li><SidebarLI text="Get Books" link="get" icon="article"></SidebarLI></li>
+                    <li><SidebarLI text="Delete" link="delete" icon="delete"></SidebarLI></li>
                 </ul>
             </div>
             <Outlet />

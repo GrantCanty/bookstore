@@ -3,9 +3,11 @@ import '../styles/sidebar-li.css'
 
 const SidebarLI = (props) => {
     return (
-            <div>
-            <Link className='other' to={`/${props.link}`}>{props.text}</Link>
-            </div>
+                <Link className='other' to={`/${props.link}`}>
+                    <span className='material-symbols-outlined'>{props.icon}</span>
+                    <br></br>
+                    {props.text}
+                </Link>
     )
 }
 
