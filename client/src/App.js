@@ -1,5 +1,6 @@
 import {Route, Routes} from 'react-router-dom';
 import Sidebar from './assets/sidebar';
+import Get from './pages/get';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           <Route path='/edit' element={""} />
           <Route path='/new' element={""} />
           <Route path='/delete' element={""} />
-          <Route path='/get' element={""} />
+          <Route path='/get' element={<Get />} />
         </Route>
       </Routes>
   );

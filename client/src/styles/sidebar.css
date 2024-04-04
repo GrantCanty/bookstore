@@ -3,6 +3,7 @@
     height: 100%;
     position: absolute;
     border-right: 2px black solid;
+    display: block;
 }
 
 .sidebar ul {
