@@ -1,0 +1,28 @@
+.sidebar {
+    width: 85px;
+    height: 100%;
+    position: absolute;
+    border-right: 2px black solid;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.sidebar ul li {
+  padding: 0;
+}
+
+.sidebar ul li a.other:hover {
+    background-color: #e4e4e4;
+}
+
+.sidebar ul li a.other {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
