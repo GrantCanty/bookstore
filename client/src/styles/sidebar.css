@@ -20,9 +20,9 @@
 }
 
 .sidebar ul li a.other {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: block;
     text-decoration: none;
-    color: black;
+    color: white;
 }
