@@ -18,7 +18,7 @@ const Get = () => {
     return (
         <div className="content">
             <div className='card-grid'>
-                <Card text='test1' />
+                <Card text='test1' link='/get/available' />
                 <Card text='test2' />
                 <Card text='test3' />
             </div>

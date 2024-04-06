@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import '../styles/card.css'
 
 const Card = (props) => {
     return (
-        <div className='card-wrapper'>
+        <Link to={props.link} className='card-wrapper'>
             <div className='card-content'>
                 {props.text}
             </div>
-        </div>
+        </Link>
     )
 }
 
