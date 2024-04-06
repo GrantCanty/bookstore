@@ -13,7 +13,7 @@ function App() {
           <Route path='/delete' element={""} />
           <Route path='/get' element={<Get />} />
           <Route path='/get/available' element={<Available />} />
-          <Route path='/get/byauthor' element={''} />
+          <Route path='/get/search' element={''} />
 
           
           
