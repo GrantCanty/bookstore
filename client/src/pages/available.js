@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { json } from 'react-router-dom'
+import Book from '../assets/book'
 
 const Available = () => {
     
@@ -17,7 +18,7 @@ const Available = () => {
     return(
         <div className='content'>
             {data.map((e) => {
-                return <div>{e.title}</div>
+                return <Book title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
         </div>
     )

@@ -18,8 +18,8 @@ const Get = () => {
     return (
         <div className="content">
             <div className='card-grid'>
-                <Card text='test1' link='/get/available' />
-                <Card text='test2' />
+                <Card text='Available Books' link='get/available' />
+                <Card text='By Author' link='get/byauthor' />
                 <Card text='test3' />
             </div>
         </div>
