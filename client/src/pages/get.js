@@ -1,9 +1,10 @@
-import '../styles/get.css'
+import '../styles/content.css'
+import '../styles/card.css'
 import { useState, useEffect } from 'react'
 
 const Get = () => {
     
-    const [data, setData] = useState()
+    /*const [data, setData] = useState()
 
     useEffect(() => {
         fetch("http://localhost:8080/api/content/available")
@@ -12,11 +13,27 @@ const Get = () => {
             .catch(error => console.error(error))
     },[])
 
-    console.log(data)
+    console.log(data)*/
     
     return (
-        <div className="get">
-            <h1>GET </h1>
+        <div className="content">
+            <div className='card-grid'>
+                <div className='card-wrapper'>
+                    <div className='card-content'>
+                        card1
+                    </div>
+                </div>
+                <div className='card-wrapper'>
+                    <div className='card-content'>
+                            card1
+                    </div>
+                </div>
+                <div className='card-wrapper'>
+                    <div className='card-content'>
+                        card1
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

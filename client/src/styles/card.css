@@ -1,0 +1,18 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: .5rem;
+}
+
+.card-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.card-content {
+    padding: 5rem;
+    background-color: red;
+    width: 100%;
+    height: 500px;
+    border-radius: 5rem;
+}
