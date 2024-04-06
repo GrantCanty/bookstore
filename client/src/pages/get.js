@@ -1,6 +1,6 @@
 import '../styles/content.css'
-import '../styles/card.css'
 import { useState, useEffect } from 'react'
+import Card from '../assets/card.js'
 
 const Get = () => {
     
@@ -18,21 +18,9 @@ const Get = () => {
     return (
         <div className="content">
             <div className='card-grid'>
-                <div className='card-wrapper'>
-                    <div className='card-content'>
-                        card1
-                    </div>
-                </div>
-                <div className='card-wrapper'>
-                    <div className='card-content'>
-                            card1
-                    </div>
-                </div>
-                <div className='card-wrapper'>
-                    <div className='card-content'>
-                        card1
-                    </div>
-                </div>
+                <Card text='test1' />
+                <Card text='test2' />
+                <Card text='test3' />
             </div>
         </div>
     )
