@@ -18,9 +18,9 @@ const Get = () => {
     return (
         <div className="content">
             <div className='card-grid'>
-                <Card text='Available Books' link='get/available' />
+                <Card text='Available Books' link='get/available' route='available' />
                 <Card text='By Author or Book Name' link='get/search' />
-                <Card text='test3' />
+                <Card text='Most Recently Published' link='get/recent' route='search/recent' />
             </div>
         </div>
     )
