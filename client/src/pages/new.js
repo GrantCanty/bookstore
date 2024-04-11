@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
+import { content } from "../types/types";
 
 
 const New = () => {
-    const [formData, setFormData] = useState({'id': 15, 'title': '', 'authorName': '', 'inventoryCount': '', 'publishDate': '', 'lastEditDate': ''})
+    const [formData, setFormData] = useState(content)
+        
+    useEffect(() => {
+        setFormData((prev) => ({
+            ...prev,
+             id: 15
+        }))
+    },[1])
+    
+    //console.log("formData: ", formData)
 
 
     const onFormUpdate = (e) => {
@@ -16,7 +26,7 @@ const New = () => {
     }
 
     const onClick =() => {
-        console.log("clicked")
+        console.log("formData: ", formData)
         axios.post('http://localhost:8080/api/content', formData)
     }
     
