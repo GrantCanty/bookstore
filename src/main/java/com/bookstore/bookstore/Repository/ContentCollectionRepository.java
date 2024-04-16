@@ -84,7 +84,7 @@ public class ContentCollectionRepository {
                 LocalDate.of(2019,5,15)
         ));
         contentList.add(new Content(
-                3,
+                4,
                 "One more book",
                 "Author's name",
                 8,
