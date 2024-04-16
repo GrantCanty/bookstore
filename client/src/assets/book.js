@@ -20,40 +20,45 @@ const Book = (props) => {
     
     return (
         <div className="book">
-            <div className='book-content'>{
-                isEdit ?
-                    <>
-                        <label>
-                            Title
-                            <input type='text' value={props.title} />
-                        </label>
-                        <label>
-                            Author
-                            <input type='text' value={props.author} />
-                        </label>
-                        <label>
-                            Available
-                            <input type='number' value={props.available} />
-                        </label>
-                        
-                    </> 
-                    :
-                    <>
-                        <h1>Title: {props.title}</h1>
-                        
-                        {props.published !== null ? null : <h4>props.published</h4>}
-                        <h4>Author: {props.author}</h4>
-                        <h4>Available copies: {props.available}</h4>
-                    </>
-                }</div>
-            <div className='button-content'>{
-                isEdit ? 
-                    <>
-                        <Button click={changeState} text='Cancel' />
-                        <Button click={onSaveClick} text='Save' />
-                    </> :
-                    <Button click={changeState} text='Edit' />
-            }</div>
+            <div className='book-wrapper'>
+                <div className='book-content'>{
+                    isEdit ?
+                        <>
+                            <label>
+                                Title
+                                <input type='text' value={props.title} />
+                            </label>
+                            <label>
+                                Author
+                                <input type='text' value={props.author} />
+                            </label>
+                            <label>
+                                Available Copies
+                                <input type='number' value={props.available} />
+                            </label>
+                            <input type='hidden' value={new Date().toISOString().split('T')[0]} />
+                            
+                        </> 
+                        :
+                        <>
+                            <h1>Title: {props.title}</h1>
+                            
+                            {props.published !== null ? null : <h4>props.published</h4>}
+                            <h4>Author: {props.author}</h4>
+                            <h4>Available copies: {props.available}</h4>
+                        </>
+                    }
+                </div>
+                <div className='button-content'>{
+                    isEdit ? 
+                        <>
+                            <Button click={changeState} text='Cancel' />
+                            <Button click={onSaveClick} text='Save' />
+                        </> :
+                        <Button click={changeState} text='Edit' />
+                }
+                </div>
+            </div>    
         </div>
     )
 }
