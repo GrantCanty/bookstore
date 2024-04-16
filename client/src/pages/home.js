@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { json, useLocation } from 'react-router-dom'
-import Book from '../assets/book'
+import TableItem from '../assets/tableItem'
 import '../styles/home.css'
-//import '../styles/content.css'
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -26,9 +25,17 @@ const Home = () => {
                 <input type='text' name='search' placeholder="Search by Author or Book Name" value={searchData} onChange={ (e) => setSearchData(e.target.value) }/>
                 <button>New</button>
             </div>
-            {data.map((e) => {
-                return <Book key={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} />
+            <div className='content-table'>
+                <div className='table-item' id='header'>
+                    <span className='item-info'>Title</span>
+                    <span className='item-info'>Author Name</span>
+                    <span className='item-info'>Available Copies</span>
+                    <span className='item-info'>Edit</span>
+                </div>
+                {data.map((e) => {
+                return <TableItem key={e.id} idName={'content'} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
+            </div>
         </div>
     )
 }

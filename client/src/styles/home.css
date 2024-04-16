@@ -19,3 +19,52 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
+
+.content-table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.table-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex: 1;
+    padding: 5px;
+}
+
+.table-item.read-and-edit input {  
+    background-color: white;
+    border: 1px solid black;
+}
+
+.table-item.readonly input {
+    background-color: transparent;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: default;
+}
+
+.item-info {
+    flex: 1;
+    font-size: 1.15rem;
+    padding: 0px;
+}
+
+#header {
+    border-bottom: black 1px solid;
+}
+
+#content:nth-child(odd) {
+    background-color: #f6f6f7;
+}
+
+#content:hover {
+    background-color: #eaeaed;
+}
+
+#content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
