@@ -10,10 +10,25 @@ button.edit {
     background-color: rgb(47, 66, 239);
 }
 
+button.edit:hover {
+    background-color: rgb(39, 54, 189);
+    cursor: pointer;
+}
+
 button.cancel {
     background-color: rgb(216, 69, 43);
 }
 
+button.cancel:hover {
+    background-color: rgb(187, 55, 31);
+    cursor: pointer;
+}
+
 button.save {
-    background-color: rgb(4, 180, 72);
+    background-color: rgb(9, 152, 69);
+}
+
+button.save:hover {
+    background-color: rgb(3, 131, 57);
+    cursor: pointer;
 }
