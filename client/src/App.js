@@ -1,8 +1,8 @@
 import {Route, Routes} from 'react-router-dom';
 import Sidebar from './assets/sidebar';
-import Get from './pages/get';
-import Available from './pages/available';
-import New from './pages/new';
+//import Get from './pages/get';
+//import Available from './pages/available';
+//import New from './pages/new';
 import Home from './pages/home';
 
 function App() {

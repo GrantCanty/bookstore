@@ -1,0 +1,19 @@
+button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+}
+
+button.edit {
+    background-color: rgb(47, 66, 239);
+}
+
+button.cancel {
+    background-color: rgb(239, 76, 47);
+}
+
+button.save {
+    background-color: rgb(20, 192, 86);
+}

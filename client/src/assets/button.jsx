@@ -1,6 +1,8 @@
+import '../styles/button.css'
+
 const Button = (props) => {
     return(
-        <button onClick={ props.click } >
+        <button className={props.text.toLowerCase()} onClick={ props.click } >
             {props.text}
         </button>
     )
