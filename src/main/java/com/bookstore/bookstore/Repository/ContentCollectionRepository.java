@@ -33,7 +33,7 @@ public class ContentCollectionRepository {
     public List<Content> findByAuthorOrBookName(String param) {
         //Searches by both author and book name. returns Content if either match. Search is case sensitive
         List<Content> l = new ArrayList<>();
-        contentList.stream().filter(c -> c.authorName().contains(param) || c.title().contains(param)).forEach(res -> l.add(res));
+        contentList.stream().filter(c -> c.authorName().toLowerCase().contains(param.toLowerCase()) || c.title().toLowerCase().contains(param.toLowerCase())).forEach(res -> l.add(res));
         
         
         
@@ -57,52 +57,132 @@ public class ContentCollectionRepository {
     public void init() {
         Content c = new Content(
                 0,
-                "Harry Potter",
+                "Harry Potter and the Sorcerer's Stone",
                 "J.K. Rowling",
                 2,
-                LocalDate.of(2012,5,15),
-                LocalDate.of(2012,5,15)
+                LocalDate.of(1997,6,26),
+                LocalDate.of(1997,6,26)
         );
         contentList.add(c);
         contentList.add(new Content(
                 1,
                     "Leave the World Behind",
-                "Mindy",
+                "Rumaan Alam",
                 5,
-                LocalDate.of(2015,5,15),
-                LocalDate.of(2015,5,15)
+                LocalDate.of(2020,10,6),
+                LocalDate.of(2020,10,6)
         ));
         contentList.add(new Content(
                 2,
                 "The Hunger Games",
-                "Author's name",
-                0,
-                LocalDate.of(2013,5,15),
-                LocalDate.of(2013,5,15)
+                "Suzanne Collins",
+                3,
+                LocalDate.of(2008,9,14),
+                LocalDate.of(2008,9,14)
         ));
         contentList.add(new Content(
                 3,
-                "Game of thrones",
-                "Author's name",
-                8,
-                LocalDate.of(2019,5,15),
-                LocalDate.of(2019,5,15)
+                "A Game of Thrones",
+                "R. R. Martin",
+                1,
+                LocalDate.of(1996,8,1),
+                LocalDate.of(1996,8,1)
         ));
         contentList.add(new Content(
                 4,
-                "One more book",
-                "Author's name",
-                8,
-                LocalDate.of(2024,1,15),
-                LocalDate.of(2024,1,15)
+                "The Hobbit",
+                "J. R. R. Tolkien",
+                0,
+                LocalDate.of(1937,9,21),
+                LocalDate.of(1937,9,21)
         ));
         contentList.add(new Content(
                 5,
-                "One more book",
-                "Author's name",
+                "The Da Vinci Code",
+                "Dan Brown",
+                4,
+                LocalDate.of(2003,3,18),
+                LocalDate.of(2003,3,18)
+        ));
+        contentList.add(new Content(
+                6,
+                "The Lost Symbol",
+                "Dan Brown",
+                7,
+                LocalDate.of(2009,9,15),
+                LocalDate.of(2009,9,15)
+        ));
+        contentList.add(new Content(
+                7,
+                "Fire & Blood",
+                "R. R. Martin",
+                0,
+                LocalDate.of(2018,10,20),
+                LocalDate.of(2018,10,20)
+        ));
+        contentList.add(new Content(
                 8,
-                LocalDate.of(2024,1,15),
-                LocalDate.of(2024,1,15)
+                "48 Laws of Power",
+                "Robert Greene",
+                2,
+                LocalDate.of(2000,9,1),
+                LocalDate.of(2000,9,1)
+        ));
+        contentList.add(new Content(
+                9,
+                "Atomic Habits",
+                "James Clear",
+                3,
+                LocalDate.of(2018,10,16),
+                LocalDate.of(2018,10,16)
+        ));
+        contentList.add(new Content(
+                10,
+                "Rich Dad Poor Dad",
+                "Robert Kiyosaki",
+                18,
+                LocalDate.of(2000,4,1),
+                LocalDate.of(2000,4,1)
+        ));
+        contentList.add(new Content(
+                11,
+                "To Kill a Mockingbird",
+                "Harper Lee",
+                1,
+                LocalDate.of(1960,7,11),
+                LocalDate.of(1960,7,11)
+        ));
+        contentList.add(new Content(
+                12,
+                "The Catcher in the Rye",
+                "J. D. Salinger",
+                8,
+                LocalDate.of(1951,7,16),
+                LocalDate.of(1951,7,16)
+        ));
+        contentList.add(new Content(
+                13,
+                "Mastery",
+                "Robert Greene",
+                16,
+                LocalDate.of(2012,10,13),
+                LocalDate.of(2012,10,13)
+        ));
+        contentList.add(new Content(
+                14,
+                "East of Eden",
+                "John Steinbeck",
+                4,
+                LocalDate.of(1952,9,19),
+                LocalDate.of(1952,9,19)
+        ));
+        contentList.add(new Content(
+                15,
+                "The Secret History",
+                "Donna Tartt",
+                5,
+                LocalDate.of(1992,9,11),
+                LocalDate.of(1992,9,11)
         ));
     }
 
