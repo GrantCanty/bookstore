@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import TableItem from '../assets/tableItem'
 import '../styles/home.css'
+import useModal from '../hooks/useModal'
+import Modal from '../assets/modal'
 
 const Home = () => {
     const [data, setData] = useState([])
     const [searchData, setSearchData] = useState('')
+    const [isModalActive, toggleIsModalActive] = useModal()
 
     
 
@@ -33,13 +36,14 @@ const Home = () => {
 
     /*console.log("data: ", data)
     console.log("data: ", data.length)*/
+    //console.log()
     
     
     return(
         <div className='content'>
             <div className='search-area'>
                 <input onKeyDown={(e) => e.key === 'Enter' ? fetchSearchResults(searchData) : null } type='text' name='search' placeholder="Search by Author or Book Name" value={searchData} onChange={ (e) => setSearchData(e.target.value) }/>
-                <button>New</button>
+                <button onClick={toggleIsModalActive} >Add Book</button>
             </div>
             <div className='content-table'>
                 <div className='table-item' id='header'>
@@ -54,6 +58,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
             </div>
+            <Modal close={toggleIsModalActive} isActive={isModalActive} />
         </div>
     )
 }
