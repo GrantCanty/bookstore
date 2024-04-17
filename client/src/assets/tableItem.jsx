@@ -21,7 +21,7 @@ const Tableitem = (props) => {
         <div className={isEdit ? 'table-item read-and-edit ' : 'table-item readonly'} id={props.idName}>
             <input type='text' className='item-info' value={props.title} readOnly={!isEdit} />
             <input type='text' className='item-info' value={props.author} readOnly={!isEdit} />
-            <input type='text' className='item-info' value={props.available} readOnly={!isEdit} />
+            <input type='number' className='item-info' value={props.available} readOnly={!isEdit} />
             <div className='item-info'>{isEdit ? 
                 <>
                     <Button click={changeState} text='Cancel' />
