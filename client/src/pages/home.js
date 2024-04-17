@@ -55,7 +55,7 @@ const Home = () => {
                 
                 {data.length === 0 ?  <h3>No Results</h3> :
                 data.map((e) => {
-                return <TableItem key={e.id} idName={'content'} title={e.title} author={e.authorName} available={e.inventoryCount} />
+                return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
             </div>
             <Modal close={toggleIsModalActive} isActive={isModalActive} />
