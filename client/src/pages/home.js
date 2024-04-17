@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { json, useLocation } from 'react-router-dom'
 import TableItem from '../assets/tableItem'
 import '../styles/home.css'
 
@@ -50,7 +49,7 @@ const Home = () => {
                     <span className='item-info'>Edit</span>
                 </div>
                 
-                {data.length == 0 ?  <h3>No Results</h3> :
+                {data.length === 0 ?  <h3>No Results</h3> :
                 data.map((e) => {
                 return <TableItem key={e.id} idName={'content'} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
