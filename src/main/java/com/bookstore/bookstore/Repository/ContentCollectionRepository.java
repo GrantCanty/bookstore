@@ -30,9 +30,14 @@ public class ContentCollectionRepository {
         return contentList.stream().filter(c -> c.inventoryCount() >= 1).collect(Collectors.toList());
     }
 
-    public Optional<Content> findByAuthorOrBookName(String param) {
+    public List<Content> findByAuthorOrBookName(String param) {
         //Searches by both author and book name. returns Content if either match. Search is case sensitive
-        return contentList.stream().filter(c -> c.authorName().contains(param) || c.title().contains(param)).findFirst();
+        List<Content> l = new ArrayList<>();
+        contentList.stream().filter(c -> c.authorName().contains(param) || c.title().contains(param)).forEach(res -> l.add(res));
+        
+        
+        
+        return l;
     }
 
     public void save(Content content) {
@@ -85,6 +90,14 @@ public class ContentCollectionRepository {
         ));
         contentList.add(new Content(
                 4,
+                "One more book",
+                "Author's name",
+                8,
+                LocalDate.of(2024,1,15),
+                LocalDate.of(2024,1,15)
+        ));
+        contentList.add(new Content(
+                5,
                 "One more book",
                 "Author's name",
                 8,

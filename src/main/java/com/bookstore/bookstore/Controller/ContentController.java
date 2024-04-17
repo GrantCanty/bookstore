@@ -37,8 +37,8 @@ public class ContentController {
     }
 
     @GetMapping("/{param}")
-    public Content findByAuthorOrBookName(@PathVariable String param) {
-        return repository.findByAuthorOrBookName(param).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content could not be found"));
+    public List<Content> findByAuthorOrBookName(@PathVariable String param) {
+        return repository.findByAuthorOrBookName(param);
     }
 
     @GetMapping("/search")
