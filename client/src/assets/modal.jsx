@@ -26,7 +26,7 @@ const Modal = (props) => {
     return ReactDOM.createPortal (
         <div onClick={props.close} className='modal-bg'>
              <div onClick={e => e.stopPropagation()} className='modal'>
-                <New nextId={props.nextId} fetchData={props.fetchData} />
+                <New nextId={props.nextId} fetchData={props.fetchData} close={props.close}/>
              </div>
          </div>
          , document.body

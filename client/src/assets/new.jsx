@@ -6,6 +6,8 @@ const New = (props) => {
     const [formData, setFormData] = useState(content)
     const [isFormValid, setIsFormValid] = useState(false)
 
+    //console.log("form Data: ", formData)
+
     useEffect(() => {
         setFormData({
             ...formData,
@@ -31,9 +33,10 @@ const New = (props) => {
     }
 
     const onClick =() => {
-        console.log("formData: ", formData)
+        //console.log("formData: ", formData)
         axios.post('http://localhost:8080/api/content', formData)
         props.fetchData()
+        props.close()
     }
     
     return (

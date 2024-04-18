@@ -12,7 +12,15 @@ const Home = () => {
         if (arr.length === 0) {
             return null
         }
-        return arr[arr.length-1].id
+        let highNum = 0
+        arr.map((e) => {
+            if (e.id > highNum) {
+                highNum = e.id
+            }
+        })
+
+        return highNum;
+        //return arr[arr.length-1].id
     }
     
     
@@ -41,6 +49,7 @@ const Home = () => {
     }
 
     function fetchData() {
+        console.log("fetching new data")
         fetch('http://localhost:8080/api/content/available')   
         .then(data => data.json())
         .then(json => setData(json))
@@ -49,7 +58,7 @@ const Home = () => {
 
     //const last = (map) => [...map]
     //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
-    //console.log("data: ", data.length)
+    console.log("data: ", data)
 
     //console.log("last: ", getId(data))
     
@@ -73,7 +82,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} fetchData={fetchData} />
             })}
             </div>
-            {<Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} fetchData={fetchData} />}
+            <Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} fetchData={fetchData} />
         </div>
     )
 }
