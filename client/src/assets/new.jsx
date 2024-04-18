@@ -9,10 +9,13 @@ const New = (props) => {
     //console.log("form Data: ", formData)
 
     useEffect(() => {
-        setFormData({
+        fetch('http://localhost:8080/api/content/nextID')   
+        .then(data => data.json())
+        .then(json => setFormData({
             ...formData,
-            id: props.nextId +1
-        })
+            id: json
+        }))
+        .catch(error => console.error(error))
     },[])
 
     useEffect(() => {

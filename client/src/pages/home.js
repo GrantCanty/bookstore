@@ -8,22 +8,6 @@ const Home = () => {
     const [data, setData] = useState([])
     const [searchData, setSearchData] = useState('')
     const [isModalActive, toggleIsModalActive] = useModal()
-    const getId = (arr) => {
-        if (arr.length === 0) {
-            return null
-        }
-        let highNum = 0
-        arr.map((e) => {
-            if (e.id > highNum) {
-                highNum = e.id
-            }
-        })
-
-        return highNum;
-        //return arr[arr.length-1].id
-    }
-    
-    
 
     useEffect(() => {
         fetch('http://localhost:8080/api/content/available')   
@@ -82,7 +66,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} fetchData={fetchData} />
             })}
             </div>
-            <Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} fetchData={fetchData} />
+            <Modal close={toggleIsModalActive} isActive={isModalActive} fetchData={fetchData} />
         </div>
     )
 }
