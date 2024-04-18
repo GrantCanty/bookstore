@@ -19,7 +19,7 @@ button.edit:hover, button.submit:hover {
     cursor: pointer;
 }
 
-button.submit.disabled:hover {
+button.submit.disabled:hover, button.save.disabled:hover {
     cursor: not-allowed;
 }
 

@@ -7,11 +7,33 @@ import { content } from '../types/types';
 const Tableitem = (props) => {
     const [isEdit, setIsEdit] = useState(false)
     const [tmpData, setTmpData] = useState(content)
+    const [isTmpDataValid, setIsTmpDataValid] = useState(false)
 
     useEffect(() => {
         let tmp = {id: props.id, title: props.title, authorName: props.author, inventoryCount: props.available, publishDate: props.pub, lastEditDate: props.edit}
         setTmpData(tmp)
     },[])
+
+    useEffect(() => {
+        if (tmpData.id !== null && tmpData.title !== "" && tmpData.authorName !== "" && tmpData.inventoryCount !== "" && tmpData.publishDate !== "" && tmpData.lastEditDate !== "") {
+            setIsTmpDataValid(true)
+        } else {
+            if (isTmpDataValid) {
+                setIsTmpDataValid(false)
+            } 
+        }
+    },[tmpData])
+
+    useEffect(() => {
+        if (isEdit) {
+            setTmpData((prev) => { 
+                return({
+                    ...prev,
+                    lastEditDate: new Date().toISOString("YYYY-MM-DD").split("T")[0]
+                })
+            })
+        }
+    },[isEdit])
 
     const onInputUpdate = (e) => {
         setTmpData((prev) => ({
@@ -24,11 +46,15 @@ const Tableitem = (props) => {
         setIsEdit((prev) => 
             !prev
         )
+
+        
     }
 
     function onSaveClick() {
         toggleEdit()
-        //axios.post("fill this out later")
+        //console.log("posting: ", tmpData)
+        axios.post("http://localhost:8080/api/content", tmpData)
+        props.fetchData()
     }
 
     function onCancelClick() {
@@ -44,11 +70,11 @@ const Tableitem = (props) => {
             <input type='number' name='inventoryCount' className='item-info' value={tmpData.inventoryCount} readOnly={!isEdit} onChange={ onInputUpdate } />
             <div className='item-info'>{isEdit ? 
                 <>
-                    <Button click={onCancelClick} text='Cancel' />
-                    <Button click={onSaveClick} text='Save' />
+                    <Button disabled={false} click={onCancelClick} text='Cancel' />
+                    <Button disabled={!isTmpDataValid} click={onSaveClick} text='Save' />
                 </>
                 :
-                <Button click={toggleEdit} text='Edit' />
+                <Button disabled={false} click={toggleEdit} text='Edit' />
             }</div>
         </div>
     )

@@ -48,7 +48,7 @@ const Home = () => {
     }
 
     //const last = (map) => [...map]
-    //console.log("data: ", data)
+    //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
     //console.log("data: ", data.length)
 
     //console.log("last: ", getId(data))
@@ -70,7 +70,7 @@ const Home = () => {
                 
                 {data.length === 0 ?  <h3>No Results</h3> :
                 data.map((e) => {
-                return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} />
+                return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} fetchData={fetchData} />
             })}
             </div>
             {<Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} fetchData={fetchData} />}
