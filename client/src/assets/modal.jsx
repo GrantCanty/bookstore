@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 import '../styles/modal.css'
 import { useEffect } from 'react'
+import New from './new'
 
 const Modal = (props) => {
 
@@ -24,7 +25,8 @@ const Modal = (props) => {
 
     return ReactDOM.createPortal (
         <div onClick={props.close} className='modal-bg'>
-             <div className='modal'>
+             <div onClick={e => e.stopPropagation()} className='modal'>
+                <New nextId={props.nextId} />
              </div>
          </div>
          , document.body

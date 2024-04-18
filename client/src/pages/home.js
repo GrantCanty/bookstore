@@ -8,7 +8,13 @@ const Home = () => {
     const [data, setData] = useState([])
     const [searchData, setSearchData] = useState('')
     const [isModalActive, toggleIsModalActive] = useModal()
-
+    const getId = (arr) => {
+        if (arr.length === 0) {
+            return null
+        }
+        return arr[arr.length-1].id
+    }
+    
     
 
     useEffect(() => {
@@ -34,9 +40,11 @@ const Home = () => {
         setSearchData('')
     }
 
-    /*console.log("data: ", data)
-    console.log("data: ", data.length)*/
-    //console.log()
+    //const last = (map) => [...map]
+    console.log("data: ", data)
+    console.log("data: ", data.length)
+
+    console.log("last: ", getId(data))
     
     
     return(
@@ -58,7 +66,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
             </div>
-            <Modal close={toggleIsModalActive} isActive={isModalActive} />
+            {<Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} />}
         </div>
     )
 }
