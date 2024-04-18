@@ -40,6 +40,17 @@ public class ContentCollectionRepository {
         return l;
     }
 
+    public Integer findNextID() {
+        Integer num = 0;
+        for (Content c : contentList) {
+                if (c.id() > num) {
+                        num = c.id();
+                } 
+        }
+        //contentList.stream().map(m -> m.id().intValue() > i );
+        return num+1;
+    }
+
     public void save(Content content) {
         contentList.removeIf(c -> c.id().equals(content.id()));
         contentList.add(content);

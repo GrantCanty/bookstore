@@ -51,6 +51,11 @@ public class ContentController {
         return repository.findMostRecent();
     }
 
+    @GetMapping("/nextID")
+    public Integer findNextID() {
+        return repository.findNextID();
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public void create(@RequestBody Content content) {
