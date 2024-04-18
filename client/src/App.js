@@ -7,6 +7,8 @@ function App() {
       <Routes>
         <Route element={<Sidebar />}>
           <Route path='/' element={<Home />} />
+          <Route path='/recent' element={null} />
+
         </Route>
       </Routes>
   );

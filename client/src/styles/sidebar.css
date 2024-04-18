@@ -12,6 +12,18 @@
     text-align: center;
 }
 
+.yellow {
+    background-color: #ffbb31;
+}
+
+.purple {
+    background-color: #752fff;
+}
+
+.red {
+    background-color: #fe3a3a;
+}
+
 .sidebar ul li {
   padding: 0;
 }
