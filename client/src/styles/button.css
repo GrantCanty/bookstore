@@ -6,13 +6,21 @@ button {
     margin-right: 5px;
 }
 
-button.edit {
+button.edit, button.submit {
     background-color: rgb(47, 66, 239);
 }
 
-button.edit:hover {
+button.submit.disabled {
+    cursor: not-allowed;
+}
+
+button.edit:hover, button.submit:hover {
     background-color: rgb(39, 54, 189);
     cursor: pointer;
+}
+
+button.submit.disabled:hover {
+    cursor: not-allowed;
 }
 
 button.cancel {

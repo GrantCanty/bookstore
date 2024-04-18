@@ -4,9 +4,7 @@ import { content } from "../types/types";
 
 const New = (props) => {
     const [formData, setFormData] = useState(content)
-    
-    console.log("id: ", props.nextId)
-    console.log("formData: ", formData)
+    const [isFormValid, setIsFormValid] = useState(false)
 
     useEffect(() => {
         setFormData({
@@ -15,19 +13,27 @@ const New = (props) => {
         })
     },[])
 
+    useEffect(() => {
+        if (formData.id !== null && formData.title !== "" && formData.authorName !== "" && formData.inventoryCount !== "" && formData.publishDate !== "" && formData.lastEditDate !== "") {
+            setIsFormValid(true)
+        } else {
+            if (isFormValid) {
+                setIsFormValid(false)
+            } 
+        }
+    },[formData])
 
     const onFormUpdate = (e) => {
         setFormData((prev) => ({
             ...prev,
             [e.target.name]: e.target.value,
         }))
-        //console.log("formData: ", formData)
-        //console.log(e.target)*/
     }
 
     const onClick =() => {
         console.log("formData: ", formData)
         axios.post('http://localhost:8080/api/content', formData)
+        props.fetchData()
     }
     
     return (
@@ -51,7 +57,7 @@ const New = (props) => {
                 <input type='date' name='publishDate' value={formData.publishDate} onChange={ (e) => { onFormUpdate(e); setFormData((prev) => ({...prev, lastEditDate: e.target.value})) } } />
             </label>
             <input type='hidden' name='lastEditDate' value={formData.lastEditDate} />
-            <button onClick={onClick} >Submit</button>
+            <button className={isFormValid ? 'submit' : 'submit disabled'} disabled={!isFormValid} onClick={onClick} >Submit</button>
         </form>
     )
 }

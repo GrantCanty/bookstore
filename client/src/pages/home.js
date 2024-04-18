@@ -40,11 +40,18 @@ const Home = () => {
         setSearchData('')
     }
 
-    //const last = (map) => [...map]
-    console.log("data: ", data)
-    console.log("data: ", data.length)
+    function fetchData() {
+        fetch('http://localhost:8080/api/content/available')   
+        .then(data => data.json())
+        .then(json => setData(json))
+        .catch(error => console.error(error))
+    }
 
-    console.log("last: ", getId(data))
+    //const last = (map) => [...map]
+    //console.log("data: ", data)
+    //console.log("data: ", data.length)
+
+    //console.log("last: ", getId(data))
     
     
     return(
@@ -66,7 +73,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} />
             })}
             </div>
-            {<Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} />}
+            {<Modal close={toggleIsModalActive} isActive={isModalActive} nextId={getId(data)} fetchData={fetchData} />}
         </div>
     )
 }
