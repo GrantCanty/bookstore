@@ -16,20 +16,28 @@
     background-color: #ffbb31;
 }
 
+.yellow:hover {
+    background-color: #efae2b;
+}
+
 .purple {
     background-color: #752fff;
+}
+
+.purple:hover {
+    background-color: #6927eb;
 }
 
 .red {
     background-color: #fe3a3a;
 }
 
-.sidebar ul li {
-  padding: 0;
+.red:hover {
+    background-color: #ed2c2c;
 }
 
-.sidebar ul li a.other:hover {
-    background-color: #e4e4e4;
+.sidebar ul li {
+  padding: 0;
 }
 
 .sidebar ul li a.other {
