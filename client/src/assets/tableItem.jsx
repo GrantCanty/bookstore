@@ -52,7 +52,6 @@ const Tableitem = (props) => {
 
     function onSaveClick() {
         toggleEdit()
-        //console.log("posting: ", tmpData)
         axios.post("http://localhost:8080/api/content", tmpData)
         props.fetchData()
     }
@@ -61,6 +60,13 @@ const Tableitem = (props) => {
         toggleEdit()
         let tmp = {id: props.id, title: props.title, authorName: props.author, inventoryCount: props.available, publishDate: props.pub, lastEditDate: props.edit}
         setTmpData(tmp)
+    }
+
+    function onClickDelete() {
+        axios.delete('http://localhost:8080/api/content/' + props.id)
+        setTimeout(() => {
+            props.fetchData()
+        }, 50)
     }
 
     return(
@@ -75,7 +81,10 @@ const Tableitem = (props) => {
                     <Button disabled={!isTmpDataValid} click={onSaveClick} text='Save' />
                 </>
                 :
-                <Button disabled={false} click={toggleEdit} text='Edit' />
+                <>
+                    <Button disabled={false} click={toggleEdit} text='Edit' />
+                    <Button className='delete' disabled={false} click={onClickDelete} text='Delete' />
+                </>
             }</div>
         </div>
     )

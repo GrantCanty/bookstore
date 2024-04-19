@@ -40,3 +40,12 @@ button.save:hover {
     background-color: rgb(3, 131, 57);
     cursor: pointer;
 }
+
+button.delete {
+    background-color: #383839;
+}
+
+button.delete:hover {
+    background-color: #19191a;
+    cursor: pointer;
+}

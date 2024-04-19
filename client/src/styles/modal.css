@@ -21,3 +21,12 @@
     background-color: #fefefe;
     color: #45464a;
 }
+
+.modal label, .modal label input {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.modal label input {
+    width: 100%;
+}

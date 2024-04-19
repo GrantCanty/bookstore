@@ -34,18 +34,13 @@ const Home = () => {
     }
 
     function fetchData() {
-        console.log("fetching new data")
+        //console.log("fetching new data")
         fetch('http://localhost:8080/api/content/available')   
         .then(data => data.json())
         .then(json => setData(json))
         .catch(error => console.error(error))
     }
-
-    //const last = (map) => [...map]
-    //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
-    //console.log("data: ", data)
-
-    //console.log("last: ", getId(data))
+    
     let inner = <New fetchData={fetchData} close={ toggleIsModalActive } />
     
     

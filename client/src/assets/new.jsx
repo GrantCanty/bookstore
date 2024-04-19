@@ -57,7 +57,7 @@ const New = (props) => {
             </label>
             <label>
                 Available:
-                <input type='number' name='inventoryCount' value={formData.inventoryCount} onChange={ onFormUpdate } />
+                <input type="number" name='inventoryCount' value={formData.inventoryCount} onChange={ onFormUpdate } />
             </label>
             <label>
                 Publish Date:
