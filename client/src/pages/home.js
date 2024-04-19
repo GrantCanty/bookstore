@@ -42,7 +42,7 @@ const Home = () => {
 
     //const last = (map) => [...map]
     //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
-    //console.log("data: ", data)
+    console.log("data: ", data)
 
     //console.log("last: ", getId(data))
     

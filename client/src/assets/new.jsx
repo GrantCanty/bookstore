@@ -6,14 +6,15 @@ const New = (props) => {
     const [formData, setFormData] = useState(content)
     const [isFormValid, setIsFormValid] = useState(false)
 
-    //console.log("form Data: ", formData)
+    console.log("form Data: ", formData)
 
     useEffect(() => {
         fetch('http://localhost:8080/api/content/nextID')   
         .then(data => data.json())
         .then(json => setFormData({
             ...formData,
-            id: json
+            id: json,
+            lastEditDate: new Date().toISOString("YYYY-MM-DD").split("T")[0],
         }))
         .catch(error => console.error(error))
     },[])
@@ -60,7 +61,7 @@ const New = (props) => {
             </label>
             <label>
                 Publish Date:
-                <input type='date' name='publishDate' value={formData.publishDate} onChange={ (e) => { onFormUpdate(e); setFormData((prev) => ({...prev, lastEditDate: e.target.value})) } } />
+                <input type='date' name='publishDate' value={formData.publishDate} onChange={ onFormUpdate } />
             </label>
             <input type='hidden' name='lastEditDate' value={formData.lastEditDate} />
             <button className={isFormValid ? 'submit' : 'submit disabled'} disabled={!isFormValid} onClick={onClick} >Submit</button>
