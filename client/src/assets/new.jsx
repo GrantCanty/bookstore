@@ -64,6 +64,7 @@ const New = (props) => {
                 <input type='date' name='publishDate' value={formData.publishDate} onChange={ onFormUpdate } />
             </label>
             <input type='hidden' name='lastEditDate' value={formData.lastEditDate} />
+            <button className='close' onClick={props.close}>Close</button>
             <button className={isFormValid ? 'submit' : 'submit disabled'} disabled={!isFormValid} onClick={onClick} >Submit</button>
         </form>
     )

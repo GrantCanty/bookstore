@@ -41,11 +41,11 @@ button.save:hover {
     cursor: pointer;
 }
 
-button.delete {
+button.delete, button.close {
     background-color: #383839;
 }
 
-button.delete:hover {
+button.delete:hover, button.close:hover {
     background-color: #19191a;
     cursor: pointer;
 }

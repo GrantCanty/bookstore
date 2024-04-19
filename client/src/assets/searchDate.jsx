@@ -38,6 +38,7 @@ const SearchDate = (props) => {
                 To:
                 <input type='date' name='to' className='item-info' value={tmpData.to} onChange={ onInputUpdate } />
             </label>
+            <button className='close' onClick={props.close}>Close</button>
             <button className={isTmpDataValid ? 'submit' : 'submit disabled'} disabled={!isTmpDataValid} onClick={onClick} >Submit</button>
         </form>
     )
