@@ -6,7 +6,7 @@ const New = (props) => {
     const [formData, setFormData] = useState(content)
     const [isFormValid, setIsFormValid] = useState(false)
 
-    console.log("form Data: ", formData)
+    //console.log("form Data: ", formData)
 
     useEffect(() => {
         fetch('http://localhost:8080/api/content/nextID')   

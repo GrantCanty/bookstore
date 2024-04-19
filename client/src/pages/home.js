@@ -42,7 +42,7 @@ const Home = () => {
 
     //const last = (map) => [...map]
     //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
-    console.log("data: ", data)
+    //console.log("data: ", data)
 
     //console.log("last: ", getId(data))
     
@@ -58,6 +58,7 @@ const Home = () => {
                     <span className='item-info'>Title</span>
                     <span className='item-info'>Author Name</span>
                     <span className='item-info'>Available Copies</span>
+                    <span className='item-info'>Publish Date</span>
                     <span className='item-info'>Edit</span>
                 </div>
                 

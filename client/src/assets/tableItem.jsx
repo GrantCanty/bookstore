@@ -68,6 +68,7 @@ const Tableitem = (props) => {
             <input type='text' name='title' className='item-info' value={tmpData.title} readOnly={!isEdit} onChange={ onInputUpdate } />
             <input type='text' name='authorName' className='item-info' value={tmpData.authorName} readOnly={!isEdit} onChange={ onInputUpdate } />
             <input type='number' name='inventoryCount' className='item-info' value={tmpData.inventoryCount} readOnly={!isEdit} onChange={ onInputUpdate } />
+            <input type='date' name='publishDate' className='item-info' value={tmpData.publishDate} readOnly={!isEdit} onChange={ onInputUpdate } />
             <div className='item-info'>{isEdit ? 
                 <>
                     <Button disabled={false} click={onCancelClick} text='Cancel' />
