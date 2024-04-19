@@ -61,7 +61,7 @@ public class ContentCollectionRepository {
     }
 
     public List<Content> findMostRecent() {
-        return contentList.stream().filter(c -> c.publishDate().isAfter(LocalDate.now().minusDays(60))).collect(Collectors.toList());
+        return contentList.stream().filter(c -> c.lastEditDate().isAfter(LocalDate.now().minusDays(60))).collect(Collectors.toList());
     }
 
     @PostConstruct
