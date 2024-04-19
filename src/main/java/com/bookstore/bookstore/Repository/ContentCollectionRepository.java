@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -61,7 +60,7 @@ public class ContentCollectionRepository {
     }
 
     public List<Content> findMostRecent() {
-        return contentList.stream().filter(c -> c.lastEditDate().isAfter(LocalDate.now().minusDays(60))).collect(Collectors.toList());
+        return contentList.stream().filter(c -> c.publishDate().isAfter(LocalDate.now().minusDays(60))).collect(Collectors.toList());
     }
 
     @PostConstruct
@@ -195,6 +194,23 @@ public class ContentCollectionRepository {
                 LocalDate.of(1992,9,11),
                 LocalDate.of(1992,9,11)
         ));
+        contentList.add(new Content(
+                16,
+                "All Things Are Too Small",
+                "Becca Rothfield",
+                4,
+                LocalDate.of(2024,4,2),
+                LocalDate.of(2024,4,2)
+        ));
+        contentList.add(new Content(
+                17,
+                "Rabbit Heart",
+                "Kristine S. Ervin",
+                10,
+                LocalDate.of(2024,3,26),
+                LocalDate.of(2024,3,26)
+        ));
+        
     }
 
     public boolean existsById(Integer id) {

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/content")
@@ -41,7 +40,7 @@ public class ContentController {
         return repository.findByAuthorOrBookName(param);
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     public List<Content> findBooksByDateRange(@RequestBody DateRange dateRange) {
         return repository.searchByDates(dateRange);
     }
