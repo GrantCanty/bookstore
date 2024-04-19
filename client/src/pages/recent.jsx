@@ -29,27 +29,26 @@ const Recent = () => {
         .catch(error => console.error(error))
     }
 
-    console.log("data: ", data)
-
     let inner = <SearchDate fetchData={fetchData} close={ toggleIsModalActive } />
     
     return(
         <div className='content'>
             <div className='search-area'>
                 {<input style={{border: "2px solid transparent", outline: 'none', cursor: 'default'}} type='text' readOnly={true} />}
-                <button onClick={toggleIsModalActive} >Search</button>
+                <button className='search' onClick={toggleIsModalActive} >Search</button>
             </div>
             <div className='content-table'>
                 <div className='table-item' id='header'>
                     <span className='item-info'>Title</span>
                     <span className='item-info'>Author Name</span>
                     <span className='item-info'>Available Copies</span>
+                    <span className='item-info'>Publish Date</span>
                     <span className='item-info'>Last Edit Date</span>
                 </div>
                 
                 {data.length === 0 ?  <h3>No Results</h3> :
                 data.map((e) => {
-                return <RecentItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} />
+                return <RecentItem key={e.id} idName={'content'} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} />
             })}
             </div>
             <Modal close={toggleIsModalActive} isActive={isModalActive} inner={inner} />

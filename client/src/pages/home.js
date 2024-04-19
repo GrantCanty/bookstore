@@ -9,7 +9,6 @@ const Home = () => {
     const [data, setData] = useState([])
     const [searchData, setSearchData] = useState('')
     const [isModalActive, toggleIsModalActive] = useModal()
-    const [isNewActive, setIsNewActive] = useModal(false)
 
     useEffect(() => {
         fetch('http://localhost:8080/api/content/available')   
@@ -42,10 +41,6 @@ const Home = () => {
         .catch(error => console.error(error))
     }
 
-    const toggleIsNewActive = () => {
-        setIsNewActive((prev) => !prev)
-    }
-
     //const last = (map) => [...map]
     //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
     //console.log("data: ", data)
@@ -58,7 +53,7 @@ const Home = () => {
         <div className='content'>
             <div className='search-area'>
                 <input onKeyDown={(e) => e.key === 'Enter' ? fetchSearchResults(searchData) : null } type='text' name='search' placeholder="Search by Author or Book Name" value={searchData} onChange={ (e) => setSearchData(e.target.value) }/>
-                <button onClick={toggleIsModalActive} >Add Book</button>
+                <button className='search' onClick={toggleIsModalActive} >Add Book</button>
             </div>
             <div className='content-table'>
                 <div className='table-item' id='header'>

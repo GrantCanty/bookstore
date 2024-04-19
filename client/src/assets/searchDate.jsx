@@ -1,21 +1,13 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import '../styles/book.css'
 
 const SearchDate = (props) => {
     const [tmpData, setTmpData] = useState({'from': '', 'to': ''})
     const [isTmpDataValid, setIsTmpDataValid] = useState(false)
-
-    useEffect(() => {
-        let data =  {
-                        'from': new Date('1900-01-01').toISOString('YYYY-MM-DD').split('T')[0],
-                        'to': new Date().toISOString('YYYY-MM-DD').split('T')[0]
-                    }
-        setTmpData(data)
-    },[])
     
     useEffect(() => {
-        if (tmpData.fromDate !== "" || tmpData.toDate !== "") {
+        if (tmpData.from !== "" && tmpData.to !== "") {
+            console.log(tmpData.to === "")
             setIsTmpDataValid(true)
         } else {
             if (isTmpDataValid) {
@@ -32,8 +24,6 @@ const SearchDate = (props) => {
     }
 
     const onClick =() => {
-        //console.log("formData: ", formData)
-        //axios.post('http://localhost:8080/api/search', tmpData)
         props.fetchData(tmpData)
         props.close()
     }

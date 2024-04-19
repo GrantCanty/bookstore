@@ -6,7 +6,7 @@ button {
     margin-right: 5px;
 }
 
-button.edit, button.submit {
+button.edit, button.submit, button.search {
     background-color: rgb(47, 66, 239);
 }
 
@@ -14,7 +14,7 @@ button.submit.disabled {
     cursor: not-allowed;
 }
 
-button.edit:hover, button.submit:hover {
+button.edit:hover, button.submit:hover, button.search:hover {
     background-color: rgb(39, 54, 189);
     cursor: pointer;
 }
