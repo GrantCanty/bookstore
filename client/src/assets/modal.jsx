@@ -26,7 +26,8 @@ const Modal = (props) => {
     return ReactDOM.createPortal (
         <div onClick={props.close} className='modal-bg'>
              <div onClick={e => e.stopPropagation()} className='modal'>
-                <New fetchData={props.fetchData} close={props.close}/>
+                {/*<New fetchData={props.fetchData} close={props.close}/>*/}
+                {props.inner}
              </div>
          </div>
          , document.body

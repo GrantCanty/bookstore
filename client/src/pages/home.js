@@ -3,11 +3,13 @@ import TableItem from '../assets/tableItem'
 import '../styles/home.css'
 import useModal from '../hooks/useModal'
 import Modal from '../assets/modal'
+import New from '../assets/new'
 
 const Home = () => {
     const [data, setData] = useState([])
     const [searchData, setSearchData] = useState('')
     const [isModalActive, toggleIsModalActive] = useModal()
+    const [isNewActive, setIsNewActive] = useModal(false)
 
     useEffect(() => {
         fetch('http://localhost:8080/api/content/available')   
@@ -40,11 +42,16 @@ const Home = () => {
         .catch(error => console.error(error))
     }
 
+    const toggleIsNewActive = () => {
+        setIsNewActive((prev) => !prev)
+    }
+
     //const last = (map) => [...map]
     //console.log("date: ", new Date().toISOString("YYYY-MM-DD").split("T")[0])
     //console.log("data: ", data)
 
     //console.log("last: ", getId(data))
+    let inner = <New fetchData={fetchData} close={ toggleIsModalActive } />
     
     
     return(
@@ -67,7 +74,7 @@ const Home = () => {
                 return <TableItem key={e.id} idName={'content'} id={e.id} title={e.title} author={e.authorName} available={e.inventoryCount} pub={e.publishDate} edit={e.lastEditDate} fetchData={fetchData} />
             })}
             </div>
-            <Modal close={toggleIsModalActive} isActive={isModalActive} fetchData={fetchData} />
+            <Modal close={ toggleIsModalActive } isActive={isModalActive} inner={inner} />
         </div>
     )
 }
